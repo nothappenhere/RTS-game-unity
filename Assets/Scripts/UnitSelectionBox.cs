@@ -5,10 +5,9 @@ public class UnitSelectionBox : MonoBehaviour
     Camera myCam;
 
     [SerializeField]
-    RectTransform boxVisual;
+    RectTransform boxVisual; // UI box visual untuk seleksi unit secara drag
 
-    Rect selectionBox;
-
+    Rect selectionBox; // Rect representasi area seleksi
     Vector2 startPosition;
     Vector2 endPosition;
 
@@ -17,42 +16,39 @@ public class UnitSelectionBox : MonoBehaviour
         myCam = Camera.main;
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
-        DrawVisual();
+        DrawVisual(); // Inisialisasi tampilan awal box
     }
 
     private void Update()
     {
-        // When Clicked
+        // Ketika klik mouse kiri
         if (Input.GetMouseButtonDown(0))
         {
             startPosition = Input.mousePosition;
-
-            // For selection the Units
-            selectionBox = new Rect();
+            selectionBox = new Rect(); // Inisialisasi area seleksi
         }
 
-        // When Dragging
+        // Ketika menahan klik kiri (drag)
         if (Input.GetMouseButton(0))
         {
             if (boxVisual.rect.width > 0 || boxVisual.rect.height > 0)
             {
-                UnitSelectionManager.instance.DeselectAll();
-                SelectUnits();
+                UnitSelectionManager.instance.DeselectAll(); // Reset seleksi saat drag dimulai
+                SelectUnits(); // Seleksi unit dalam area
             }
 
             endPosition = Input.mousePosition;
-            DrawVisual();
-            DrawSelection();
+            DrawVisual();    // Gambar ulang box seleksi visual
+            DrawSelection(); // Hitung ulang area seleksi
         }
 
-        // When Releasing
+        // Ketika melepas mouse kiri
         if (Input.GetMouseButtonUp(0))
         {
-            SelectUnits();
-
+            SelectUnits(); // Finalisasi seleksi unit
             startPosition = Vector2.zero;
             endPosition = Vector2.zero;
-            DrawVisual();
+            DrawVisual(); // Reset box visual
         }
     }
 
@@ -77,6 +73,7 @@ public class UnitSelectionBox : MonoBehaviour
 
     void DrawSelection()
     {
+        // Hitung batas X dari kotak seleksi
         if (Input.mousePosition.x < startPosition.x)
         {
             selectionBox.xMin = Input.mousePosition.x;
@@ -88,7 +85,7 @@ public class UnitSelectionBox : MonoBehaviour
             selectionBox.xMax = Input.mousePosition.x;
         }
 
-
+        // Hitung batas Y dari kotak seleksi
         if (Input.mousePosition.y < startPosition.y)
         {
             selectionBox.yMin = Input.mousePosition.y;
@@ -101,6 +98,7 @@ public class UnitSelectionBox : MonoBehaviour
         }
     }
 
+    // Seleksi unit yang berada di dalam area seleksi
     void SelectUnits()
     {
         foreach (var unit in UnitSelectionManager.instance.allUnitsList)

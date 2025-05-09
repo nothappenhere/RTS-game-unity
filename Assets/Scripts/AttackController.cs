@@ -2,17 +2,28 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    public Transform target;
+    public Transform target; // Target musuh saat ini
 
     public Material idleStateMaterial;
     public Material followStateMaterial;
     public Material attackStateMaterial;
 
-    public bool isPlayer;
-    public int unitDamage;
+    public bool isPlayer; // Apakah ini unit pemain?
+    public int unitDamage; // Besarnya damage saat menyerang
+
+    public GameObject spearEffect;
 
     private void OnTriggerEnter(Collider other)
     {
+        // Jika bertemu musuh dan belum punya target, tetapkan target
+        if (isPlayer && other.CompareTag("Enemy") && target == null)
+        {
+            target = other.transform;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        // Jika bertemu musuh dan belum punya target, tetapkan target
         if (isPlayer && other.CompareTag("Enemy") && target == null)
         {
             target = other.transform;
@@ -21,39 +32,41 @@ public class AttackController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        // Jika musuh keluar dari trigger dan target belum ditetapkan, kosongkan target
         if (isPlayer &&  other.CompareTag("Enemy") && target == null)
         {
             target = null;
         }
     }
 
+    // Ganti material saat idle
     public void setIdleMaterial()
     {
-        GetComponent<Renderer>().material = idleStateMaterial; 
+        //GetComponent<Renderer>().material = idleStateMaterial;
     }
 
+    // Ganti material saat mengikuti target
     public void setFollowMaterial()
     {
-        GetComponent<Renderer>().material = followStateMaterial;
+        //GetComponent<Renderer>().material = followStateMaterial;
     }
 
+    // Ganti material saat menyerang
     public void setAttackMaterial()
     {
-        GetComponent<Renderer>().material = attackStateMaterial;
+        //GetComponent<Renderer>().material = attackStateMaterial;
     }
 
     private void OnDrawGizmos()
     {
-        // Follow distance
-        Gizmos.color = Color.yellow;
+        // Visualisasi jarak interaksi
+        Gizmos.color = Color.yellow; // Jarak follow
         Gizmos.DrawWireSphere(transform.position, 10f * 0.3f);
-        
-        // Attack distance
-        Gizmos.color = Color.red;
+
+        Gizmos.color = Color.red; // Jarak attack
         Gizmos.DrawWireSphere(transform.position, 1f);
 
-        // Stop Attack distance
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.blue; // Jarak stop attack
         Gizmos.DrawWireSphere(transform.position, 1.2f);
     }
 }

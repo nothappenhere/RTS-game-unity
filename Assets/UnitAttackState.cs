@@ -18,6 +18,7 @@ public class UnitAttackState : StateMachineBehaviour
         attackController = animator.GetComponent<AttackController>();
 
         attackController.setAttackMaterial();
+        attackController.spearEffect.gameObject.SetActive(true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -28,7 +29,7 @@ public class UnitAttackState : StateMachineBehaviour
             lookAtTarget();
 
             // Keep moving towards enemy
-            agent.SetDestination(attackController.target.position);
+            //agent.SetDestination(attackController.target.position);
 
             if (attackTimer <= 0)
             {
@@ -46,6 +47,11 @@ public class UnitAttackState : StateMachineBehaviour
             {
                 animator.SetBool("isAttacking", false);  // Move to Follow State
             }
+        }
+        else
+        {
+                animator.SetBool("isAttacking", false);  // Move to Follow State
+
         }
     }
 
@@ -65,8 +71,8 @@ public class UnitAttackState : StateMachineBehaviour
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        attackController.spearEffect.gameObject.SetActive(false);
+    }
 }
