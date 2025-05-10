@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Unit : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Unit : MonoBehaviour
 
     public HealthTracker healthTracker; // UI slider kesehatan
 
+    Animator animator;
+    NavMeshAgent agent;
 
     void Start()
     {
@@ -16,6 +19,9 @@ public class Unit : MonoBehaviour
 
         unitHealth = unitMaxHealth;
         UpdateHealthUI(); // Perbarui tampilan kesehatan awal
+
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     private void OnDestroy()
@@ -40,5 +46,18 @@ public class Unit : MonoBehaviour
     {
         unitHealth -= damageToInflict;
         UpdateHealthUI();
+    }
+
+    private void Update()
+    {
+        // Cek apakah unit sudah mencapai tujuan
+        if (agent.remainingDistance > agent.stoppingDistance)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
     }
 }

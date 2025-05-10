@@ -9,13 +9,10 @@ public class UnitMovement : MonoBehaviour
 
     public bool isCommandedToMove; // Status apakah unit sedang bergerak
 
-    Animator animator;
-
     private void Start()
     {
         cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,7 +27,6 @@ public class UnitMovement : MonoBehaviour
             {
                 isCommandedToMove = true; // Unit menerima perintah gerak
                 agent.SetDestination(hit.point); // Bergerak ke titik klik
-                animator.SetBool("isMoving", true);
             }
         }
 
@@ -38,11 +34,6 @@ public class UnitMovement : MonoBehaviour
         if (agent.hasPath == false || agent.remainingDistance <= agent.stoppingDistance)
         {
             isCommandedToMove = false; // Hentikan pergerakan
-            animator.SetBool("isMoving", false);
-        }
-        else
-        {
-            animator.SetBool("isMoving", true);
         }
     }
 }
