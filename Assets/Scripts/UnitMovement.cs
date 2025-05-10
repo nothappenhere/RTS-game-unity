@@ -9,10 +9,14 @@ public class UnitMovement : MonoBehaviour
 
     public bool isCommandedToMove; // Status apakah unit sedang bergerak
 
+    DirectionIndicator directionIndicator;
+
     private void Start()
     {
         cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
+
+        directionIndicator = GetComponent<DirectionIndicator>();
     }
 
     private void Update()
@@ -27,6 +31,8 @@ public class UnitMovement : MonoBehaviour
             {
                 isCommandedToMove = true; // Unit menerima perintah gerak
                 agent.SetDestination(hit.point); // Bergerak ke titik klik
+
+                directionIndicator.DrawLine(hit);
             }
         }
 
