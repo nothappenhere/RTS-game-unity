@@ -40,17 +40,17 @@ public class BuySlot : MonoBehaviour
         }
     }
 
-    public void OnEnable()
-    {
-        // Subscribe to event/Listen to event
-        ResourceManager.instance.OnResourceChanged += HandleResourceChanged;
-    }
+    //public void OnEnable()
+    //{
+    //    // Subscribe to event/Listen to event
+    //    ResourceManager.instance.OnResourceChanged += HandleResourceChanged;
+    //}
 
-    public void OnDisable()
-    {
-        // Unsubscribe to event/Stop listen to event
-        ResourceManager.instance.OnResourceChanged -= HandleResourceChanged;
-    }
+    //public void OnDisable()
+    //{
+    //    // Unsubscribe to event/Stop listen to event
+    //    ResourceManager.instance.OnResourceChanged -= HandleResourceChanged;
+    //}
 
     private void HandleResourceChanged()
     {
