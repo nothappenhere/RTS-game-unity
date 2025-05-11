@@ -57,6 +57,9 @@ public class PlacementState : IBuildingState
 
         int index = objectPlacer.PlaceObject(database.objectsData[selectedObjectIndex].Prefab, grid.CellToWorld(gridPosition));
 
+        ResourceManager.instance.DecreaseResourceBasedOnRequirement(database.objectsData[selectedObjectIndex]);
+
+
         // If this id is a floor id, then its a floor data, else its a furniture data
         GridData selectedData = GetAllFloorIDs().Contains(database.objectsData[selectedObjectIndex].ID) ? floorData : furnitureData;
        

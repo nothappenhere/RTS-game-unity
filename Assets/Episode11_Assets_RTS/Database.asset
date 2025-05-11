@@ -18,5 +18,16 @@ MonoBehaviour:
     description: 
     <Size>k__BackingField: {x: 7, y: 9}
     <Prefab>k__BackingField: {fileID: 1461172732214429169, guid: f4613b268f8c821469be3d136cd57486, type: 3}
-    <requirements>k__BackingField: []
+    <requirements>k__BackingField:
+    - resource: 0
+      amount: 150
+    <benefits>k__BackingField: []
+  - <Name>k__BackingField: Sumur
+    <ID>k__BackingField: 1
+    description: 
+    <Size>k__BackingField: {x: 7, y: 9}
+    <Prefab>k__BackingField: {fileID: 0}
+    <requirements>k__BackingField:
+    - resource: 0
+      amount: 500
     <benefits>k__BackingField: []
