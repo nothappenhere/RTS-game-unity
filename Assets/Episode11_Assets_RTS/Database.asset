@@ -22,12 +22,12 @@ MonoBehaviour:
     - resource: 0
       amount: 150
     <benefits>k__BackingField: []
-  - <Name>k__BackingField: Sumur
+  - <Name>k__BackingField: BuildingV1
     <ID>k__BackingField: 1
     description: 
-    <Size>k__BackingField: {x: 7, y: 9}
-    <Prefab>k__BackingField: {fileID: 0}
+    <Size>k__BackingField: {x: 5, y: 4}
+    <Prefab>k__BackingField: {fileID: 4108722054368922955, guid: 6751d7cf7ff9b99479fa05ade7d5a11f, type: 3}
     <requirements>k__BackingField:
     - resource: 0
-      amount: 500
+      amount: 100
     <benefits>k__BackingField: []

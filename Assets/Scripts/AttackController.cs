@@ -61,12 +61,12 @@ public class AttackController : MonoBehaviour
     {
         // Visualisasi jarak interaksi
         Gizmos.color = Color.yellow; // Jarak follow
-        Gizmos.DrawWireSphere(transform.position, 10f * 0.3f);
+        Gizmos.DrawWireSphere(transform.position, 3f * 0.3f);
 
         Gizmos.color = Color.red; // Jarak attack
-        Gizmos.DrawWireSphere(transform.position, 1f);
+        Gizmos.DrawWireSphere(transform.position, 2f);
 
         Gizmos.color = Color.blue; // Jarak stop attack
-        Gizmos.DrawWireSphere(transform.position, 1.2f);
+        Gizmos.DrawWireSphere(transform.position, 2.5f);
     }
 }
