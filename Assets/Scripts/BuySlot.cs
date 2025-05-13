@@ -15,7 +15,12 @@ public class BuySlot : MonoBehaviour
 
     private void Start()
     {
+        // Subscribe to event/Listen to event
+        ResourceManager.instance.OnResourceChanged += HandleResourceChanged;
         HandleResourceChanged();
+
+        ResourceManager.instance.OnBuildingsChanged += HandleBuildingsChanged;
+        HandleBuildingsChanged();
     }
 
     public void ClickedOnSlot()
@@ -42,14 +47,16 @@ public class BuySlot : MonoBehaviour
 
     //public void OnEnable()
     //{
-    //    // Subscribe to event/Listen to event
-    //    ResourceManager.instance.OnResourceChanged += HandleResourceChanged;
+        
     //}
 
     //public void OnDisable()
     //{
     //    // Unsubscribe to event/Stop listen to event
     //    ResourceManager.instance.OnResourceChanged -= HandleResourceChanged;
+
+    //    // Unsubscribe to event/Stop listen to event
+    //    // ResourceManager.instance.OnBuildingsChanged -= HandleBuildingsChanged;
     //}
 
     private void HandleResourceChanged()
@@ -58,7 +65,7 @@ public class BuySlot : MonoBehaviour
 
         bool requirementMet = true;
 
-        foreach (BuildRequirement req in objectData.requirements)
+        foreach (BuildRequirement req in objectData.resourceRequirements)
         {
             if (ResourceManager.instance.GetResourceAmount(req.resource) < req.amount)
             {
@@ -70,5 +77,30 @@ public class BuySlot : MonoBehaviour
         isAvailable = requirementMet;
 
         UpdateAvailableUI();
+    }
+
+    private void HandleBuildingsChanged()
+    {
+        ObjectData objectData = DatabaseManager.instance.databaseSO.objectsData[databaseItemID];
+
+        foreach(BuildingType dependency in objectData.buildingDependecy)
+        {
+            // If the building has not dependencies
+            if (dependency == BuildingType.None) 
+            {
+                gameObject.SetActive(true);
+                return;
+            }
+
+            // Check if dependency exist
+            if (!ResourceManager.instance.allExistingBuildings.Contains(dependency))
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+        }
+
+        // If all requirements are met.
+        gameObject.SetActive(true);
     }
 }

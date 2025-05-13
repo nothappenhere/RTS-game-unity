@@ -13,21 +13,25 @@ MonoBehaviour:
   m_Name: Database
   m_EditorClassIdentifier: 
   objectsData:
-  - <Name>k__BackingField: Bulding
+  - <Name>k__BackingField: Town Hall
     <ID>k__BackingField: 0
+    <thisBuildingType>k__BackingField: 1
     description: 
     <Size>k__BackingField: {x: 7, y: 9}
     <Prefab>k__BackingField: {fileID: 1461172732214429169, guid: f4613b268f8c821469be3d136cd57486, type: 3}
-    <requirements>k__BackingField:
+    <resourceRequirements>k__BackingField:
     - resource: 0
       amount: 150
+    <buildingDependecy>k__BackingField: 00000000
     <benefits>k__BackingField: []
   - <Name>k__BackingField: BuildingV1
     <ID>k__BackingField: 1
+    <thisBuildingType>k__BackingField: 2
     description: 
-    <Size>k__BackingField: {x: 5, y: 4}
-    <Prefab>k__BackingField: {fileID: 4108722054368922955, guid: 6751d7cf7ff9b99479fa05ade7d5a11f, type: 3}
-    <requirements>k__BackingField:
+    <Size>k__BackingField: {x: 4, y: 5}
+    <Prefab>k__BackingField: {fileID: 7191769372212703339, guid: 6751d7cf7ff9b99479fa05ade7d5a11f, type: 3}
+    <resourceRequirements>k__BackingField:
     - resource: 0
       amount: 100
+    <buildingDependecy>k__BackingField: 01000000
     <benefits>k__BackingField: []

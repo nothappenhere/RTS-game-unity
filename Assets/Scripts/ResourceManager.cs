@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -8,12 +10,16 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager instance { get; set; }
 
     public int credits = 0;
+
+    public List<BuildingType> allExistingBuildings;
+
     public enum ResourceType
     {
         Credits,
     }
 
     public event Action OnResourceChanged;
+    public event Action OnBuildingsChanged;
 
     public TextMeshProUGUI creditsUI;
 
@@ -33,6 +39,20 @@ public class ResourceManager : MonoBehaviour
     private void Start()
     {
         UpdateUI();
+    }
+
+    public void UpdateBuildingChanged(BuildingType buildingType, bool isNew)
+    {
+        if (isNew)
+        {
+            allExistingBuildings.Add(buildingType);
+        }
+        else
+        {
+            allExistingBuildings.Remove(buildingType);
+        }
+
+        OnBuildingsChanged?.Invoke();
     }
 
     public void IncreaseResource(ResourceType resource, int amountToIncrease)
@@ -88,7 +108,7 @@ public class ResourceManager : MonoBehaviour
 
     internal void DecreaseResourceBasedOnRequirement(ObjectData objectData)
     {
-        foreach (BuildRequirement req in objectData.requirements)
+        foreach (BuildRequirement req in objectData.resourceRequirements)
         {
             DecreaseResource(req.resource, req.amount);
         }
