@@ -85,7 +85,7 @@ public class ResourceManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        creditsUI.text = $"Credits: {credits}";
+        creditsUI.text = $"{credits}";
     }
 
     public int GetCredits()

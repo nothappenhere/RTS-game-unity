@@ -17,8 +17,8 @@ MonoBehaviour:
     <ID>k__BackingField: 0
     <thisBuildingType>k__BackingField: 1
     description: 
-    <Size>k__BackingField: {x: 5, y: 5}
-    <Prefab>k__BackingField: {fileID: 2763462270823410184, guid: 0ee1121d93c159d48876b911fbf7994e, type: 3}
+    <Size>k__BackingField: {x: 0, y: 0}
+    <Prefab>k__BackingField: {fileID: 1562094794940518771, guid: 0ee1121d93c159d48876b911fbf7994e, type: 3}
     <resourceRequirements>k__BackingField:
     - resource: 0
       amount: 0

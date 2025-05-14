@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class PlacementState : IBuildingState
@@ -81,11 +82,28 @@ public class PlacementState : IBuildingState
 
     private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
     {
-      
-
         GridData selectedData = GetAllFloorIDs().Contains(database.objectsData[selectedObjectIndex].ID) ? floorData : furnitureData;
 
-        return selectedData.CanPlaceObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size);
+        // Check if the grid cell is already ocupied by another object from the GridData 
+        if (!selectedData.CanPlaceObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size))
+        {
+            return false;
+        }
+
+        // Additional check for obstacles (trees, units, enviroment) 
+        Vector3 worldPosition = grid.CellToWorld(gridPosition);
+        Collider[] colliders = Physics.OverlapBox(worldPosition, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity);
+
+        foreach (var collider in colliders)
+        {
+            if (collider.CompareTag("Unit") || collider.CompareTag("Enemy"))  // Add more tags
+            { 
+                return false;
+            }
+        }
+
+        return true;
+        //return selectedData.CanPlaceObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size);
     }
 
     public void UpdateState(Vector3Int gridPosition)
