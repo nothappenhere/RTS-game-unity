@@ -35,6 +35,7 @@ public class RTSCameraController : MonoBehaviour
     public Texture2D cursorArrowDown;
     public Texture2D cursorArrowLeft;
     public Texture2D cursorArrowRight;
+    public Texture2D cursorDrag;
 
     CursorArrow currentCursor = CursorArrow.DEFAULT;
     enum CursorArrow
@@ -43,6 +44,7 @@ public class RTSCameraController : MonoBehaviour
         DOWN,
         LEFT,
         RIGHT,
+        DRAG,
         DEFAULT
     }
 
@@ -181,6 +183,9 @@ public class RTSCameraController : MonoBehaviour
                 case CursorArrow.RIGHT:
                     Cursor.SetCursor(cursorArrowRight, new Vector2(cursorArrowRight.width, cursorArrowRight.height), CursorMode.Auto); // So the Cursor will stay inside view
                     break;
+                case CursorArrow.DRAG:
+                    Cursor.SetCursor(cursorDrag, new Vector2(cursorDrag.width / 2, cursorDrag.height / 2), CursorMode.Auto);
+                    break;
                 case CursorArrow.DEFAULT:
                     Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                     break;
@@ -205,7 +210,11 @@ public class RTSCameraController : MonoBehaviour
             {
                 dragStartPosition = ray.GetPoint(entry);
             }
+
+            // Ganti cursor ke mode DRAG
+            ChangeCursor(CursorArrow.DRAG);
         }
+
         if (Input.GetMouseButton(2) && EventSystem.current.IsPointerOverGameObject() == false)
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
@@ -219,6 +228,12 @@ public class RTSCameraController : MonoBehaviour
 
                 newPosition = transform.position + dragStartPosition - dragCurrentPosition;
             }
+        }
+
+        // Jika drag mouse dilepas, kembalikan ke default
+        if (Input.GetMouseButtonUp(2))
+        {
+            ChangeCursor(CursorArrow.DEFAULT);
         }
     }
 }
