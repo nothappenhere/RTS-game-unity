@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,6 +31,7 @@ public class UnitMovement : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
                 isCommandedToMove = true; // Unit menerima perintah gerak
+                StartCoroutine(NoCommand());
                 agent.SetDestination(hit.point); // Bergerak ke titik klik
 
                 directionIndicator.DrawLine(hit);
@@ -37,9 +39,15 @@ public class UnitMovement : MonoBehaviour
         }
 
         // Cek apakah unit sudah mencapai tujuan
-        if (agent.hasPath == false || agent.remainingDistance <= agent.stoppingDistance)
-        {
-            isCommandedToMove = false; // Hentikan pergerakan
-        }
+        //if (agent.hasPath == false || agent.remainingDistance <= agent.stoppingDistance)
+        //{
+        //    isCommandedToMove = false; // Hentikan pergerakan
+        //}
+    }
+
+    IEnumerator NoCommand()
+    {
+        yield return new WaitForSeconds(1);
+        isCommandedToMove = false; // Hentikan pergerakan
     }
 }

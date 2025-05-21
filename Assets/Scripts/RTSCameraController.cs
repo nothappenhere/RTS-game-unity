@@ -28,6 +28,14 @@ public class RTSCameraController : MonoBehaviour
     [SerializeField] float movementSensitivity = 1f; // Hardcoded Sensitivity
     float movementSpeed;
 
+    [Header("Zoom Settings (FOV-based)")]
+    [SerializeField] Camera mainCamera;  // drag MainCamera ke sini di Inspector
+    [SerializeField] float minFOV = 30f;
+    [SerializeField] float maxFOV = 80f;
+    [SerializeField] float zoomSpeed = 10f;
+    [SerializeField] float zoomLerpSpeed = 10f;
+    private float targetFOV;
+
     [Header("Edge Scrolling Movement")]
     [SerializeField] float edgeSize = 50f;
     bool isCursorSet = false;
@@ -51,10 +59,11 @@ public class RTSCameraController : MonoBehaviour
     private void Start()
     {
         instance = this;
-
         newPosition = transform.position;
-
         movementSpeed = normalSpeed;
+
+        // Set target awal FOV
+        targetFOV = mainCamera.fieldOfView;
     }
 
     private void Update()
@@ -68,6 +77,7 @@ public class RTSCameraController : MonoBehaviour
         else
         {
             HandleCameraMovement();
+            HandleZoomInput();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -164,6 +174,20 @@ public class RTSCameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined; // If we have an extra monitor we don't want to exit screen bounds
     }
 
+    void HandleZoomInput()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (Mathf.Abs(scroll) > 0.01f)
+        {
+            targetFOV -= scroll * zoomSpeed;
+            targetFOV = Mathf.Clamp(targetFOV, minFOV, maxFOV);
+        }
+
+        mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView, targetFOV, Time.deltaTime * zoomLerpSpeed);
+    }
+
+
     private void ChangeCursor(CursorArrow newCursor)
     {
         // Only change cursor if its not the same cursor
@@ -194,8 +218,6 @@ public class RTSCameraController : MonoBehaviour
             currentCursor = newCursor;
         }
     }
-
-
 
     private void HandleMouseDragInput()
     {

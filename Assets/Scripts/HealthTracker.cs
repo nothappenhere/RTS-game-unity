@@ -24,9 +24,15 @@ public class HealthTracker : MonoBehaviour
         float healthPercentage = Mathf.Clamp01(currentHealth / maxHealth);
 
         // Update the slider value and size
-       // HealthBarSlider.value = healthPercentage;
+        // HealthBarSlider.value = healthPercentage;
 
-
+        if (!gameObject.activeInHierarchy)
+        {
+            // Skip coroutine, langsung set value dan color secara instan
+            HealthBarSlider.value = healthPercentage;
+            UpdateColor(healthPercentage);
+            return;
+        }
 
         // If there is an ongoing smooth health change coroutine, stop it
         if (smoothHealthChangeCoroutine != null)
@@ -36,8 +42,6 @@ public class HealthTracker : MonoBehaviour
 
         // Start a new coroutine for smooth health change
         smoothHealthChangeCoroutine = StartCoroutine(SmoothHealthChange(HealthBarSlider.value, healthPercentage, 0.5f));
-
-
 
         // Update the color based on health percentage
         UpdateColor(healthPercentage);

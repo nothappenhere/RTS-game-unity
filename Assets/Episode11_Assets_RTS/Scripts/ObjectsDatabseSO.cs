@@ -27,12 +27,12 @@ public enum BuildingType
 {
     None,
     TownHall,
-    HouseV1,
-    HouseV2,
-    HouseV3,
-    HouseV4,
-    HouseV5,
-    HouseV6,
+    BuildingV1,
+    BuildingV2,
+    BuildingV3,
+    BuildingV4,
+    BuildingV5,
+    BuildingV6,
 }
 
 [System.Serializable]

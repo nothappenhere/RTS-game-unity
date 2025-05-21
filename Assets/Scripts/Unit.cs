@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, IDamagaeble
 {
     private float unitHealth; // Nyawa saat ini
     public float unitMaxHealth; // Nyawa maksimum unit
@@ -16,6 +16,8 @@ public class Unit : MonoBehaviour
     {
         // Tambahkan unit ke daftar global saat muncul
         UnitSelectionManager.instance.allUnitsList.Add(gameObject);
+
+        healthTracker.gameObject.SetActive(false);
 
         unitHealth = unitMaxHealth;
         UpdateHealthUI(); // Perbarui tampilan kesehatan awal
@@ -34,6 +36,11 @@ public class Unit : MonoBehaviour
     {
         healthTracker.UpdateSliderValue(unitHealth, unitMaxHealth);
 
+        if (unitHealth >= unitMaxHealth)
+        {
+            healthTracker.gameObject.SetActive(false);
+        }
+
         if (unitHealth <= 0)
         {
             // Logika mati
@@ -42,11 +49,17 @@ public class Unit : MonoBehaviour
     }
 
     // Fungsi dipanggil saat unit terkena serangan
-    internal void TakeDamage(int damageToInflict)
+    public void TakeDamage(int damageToInflict)
     {
+        if (!healthTracker.gameObject.activeSelf)
+        {
+            healthTracker.gameObject.SetActive(true); // Munculkan UI health ketika kena damage
+        }
+
         unitHealth -= damageToInflict;
         UpdateHealthUI();
     }
+
 
     private void Update()
     {
