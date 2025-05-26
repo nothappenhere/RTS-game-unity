@@ -17,6 +17,9 @@ public class Constructable : MonoBehaviour, IDamagaeble
     public bool isEnemy = false;
 
     public BuildingType buildingType;
+
+    public Vector3 builPosition;
+
     private void Start()
     {
         constHealth = constMaxHealth;
@@ -35,7 +38,7 @@ public class Constructable : MonoBehaviour, IDamagaeble
 
         if (constHealth <= 0)
         {
-            ResourceManager.instance.UpdateBuildingChanged(buildingType, false);
+            ResourceManager.instance.UpdateBuildingChanged(buildingType, false, builPosition);
 
             Destroy(gameObject);
         }

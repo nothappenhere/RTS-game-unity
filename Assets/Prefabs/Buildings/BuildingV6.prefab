@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8919183529898443707}
   - component: {fileID: 8000669503119871261}
   - component: {fileID: 5995812216458328055}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: TeamName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 5556946286480959789}
   - component: {fileID: 7165150013075205172}
   - component: {fileID: 6300760084775098088}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8274927378326005695}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 4530016533002119474}
   - component: {fileID: 530764546699403798}
   - component: {fileID: 6430643982711667661}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 6714979994010496717}
   - component: {fileID: 7869469012037246952}
   - component: {fileID: -3299743035948476041}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuildingV6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 2070005985845782278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 26.503103, y: 0, z: 37.004047}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -389,6 +389,7 @@ MonoBehaviour:
   healthTracker: {fileID: 8228974747648926183}
   isEnemy: 0
   buildingType: 7
+  builPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &-3299743035948476041
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -408,7 +409,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.8, y: 2.8, z: 1.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2082905814142247392
 GameObject:
@@ -422,7 +423,7 @@ GameObject:
   - component: {fileID: 3384575881921400203}
   - component: {fileID: 6946733404963249296}
   - component: {fileID: 1537927068431756401}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConstructableUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +524,7 @@ GameObject:
   - component: {fileID: 4794418417547259267}
   - component: {fileID: 3693939322448331463}
   - component: {fileID: 2013771967878917799}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5096335190850014069}
   - component: {fileID: 8492093680917497948}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthBarSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5202723371170819104}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +727,7 @@ GameObject:
   - component: {fileID: 7067845484713042131}
   - component: {fileID: 8228974747648926183}
   - component: {fileID: 5278874803993249961}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,9 +834,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Medieval_Building_LowPoly_V6
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0d2705fad2ad8c4684521ae1fee56c4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c0d2705fad2ad8c4684521ae1fee56c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.31160927
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c0d2705fad2ad8c4684521ae1fee56c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -843,7 +848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c0d2705fad2ad8c4684521ae1fee56c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.39308548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c0d2705fad2ad8c4684521ae1fee56c4, type: 3}
       propertyPath: m_LocalRotation.w

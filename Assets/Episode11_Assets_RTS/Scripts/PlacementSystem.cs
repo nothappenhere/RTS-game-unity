@@ -47,6 +47,11 @@ public class PlacementSystem : MonoBehaviour
         inputManager.OnExit += StopPlacement;
     }
 
+    public void RemovePlacementData(Vector3 position)
+    {
+        floorData.RemoveObjectAt(grid.WorldToCell(position));
+    }
+
     public void StartRemoving()
     {
         StopPlacement();
@@ -59,10 +64,11 @@ public class PlacementSystem : MonoBehaviour
 
     private void PlaceStructure()
     {
-        if(inputManager.IsPointerOverUI()){
-            Debug.Log("Pointer was over UI - Returned");
-            return;
-        }
+        //if(inputManager.IsPointerOverUI()){
+        //    Debug.Log("Pointer was over UI - Returned");
+        //    return;
+        //}
+
         // When we click on a cell, we get the cell
         Vector3 mousePosition = inputManager.GetSelectedMapPosition();
         Vector3Int gridPosition = grid.WorldToCell(mousePosition);

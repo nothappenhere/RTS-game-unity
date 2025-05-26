@@ -15,6 +15,7 @@ public class UnitSelectionManager : MonoBehaviour
     public LayerMask clickable;   // Layer mask untuk objek yang bisa di-klik (unit)
     public LayerMask ground;      // Layer mask untuk tanah
     public LayerMask attackable;  // Layer mask untuk target yang bisa diserang
+    public LayerMask constructable;  // Layer mask untuk bangunan
 
     public GameObject groundMaker; // Objek penanda lokasi klik kanan (tanah)
     private Camera cam;
@@ -134,6 +135,10 @@ public class UnitSelectionManager : MonoBehaviour
         {
             CursorManager.Instance.SetMarkerType(CursorManager.CursorType.Attackable);
         }
+        else if (Physics.Raycast(ray, out hit, Mathf.Infinity, constructable) && unitsSelected.Count > 0)
+        {
+            CursorManager.Instance.SetMarkerType(CursorManager.CursorType.UnAvailable);
+        }
         else if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground) && unitsSelected.Count > 0)
         {
             CursorManager.Instance.SetMarkerType(CursorManager.CursorType.Walkable);
@@ -147,9 +152,9 @@ public class UnitSelectionManager : MonoBehaviour
     // Mengecek apakah ada setidaknya satu unit yang bisa menyerang
     private bool AtleastOneOffensiveUnit(List<GameObject> unitsSelected)
     {
-        foreach (GameObject Unit in unitsSelected)
+        foreach (GameObject unit in unitsSelected)
         {
-            if (Unit.GetComponent<AttackController>())
+            if (unit != null &&  unit.GetComponent<AttackController>())
             {
                 return true;
             }

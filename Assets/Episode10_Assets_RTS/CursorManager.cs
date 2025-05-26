@@ -28,7 +28,7 @@ public class CursorManager : MonoBehaviour
     public GameObject unAvailableCursor;
 
 
-    CursorType currentCursor;
+    public CursorType currentCursor;
 
 
     public enum CursorType

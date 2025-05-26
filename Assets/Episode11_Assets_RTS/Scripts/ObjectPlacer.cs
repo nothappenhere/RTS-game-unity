@@ -16,6 +16,7 @@ public class ObjectPlacer : MonoBehaviour
 
         // Enable different things for example activate the obstical
         newObject.GetComponent<Constructable>().ConstructableWasPlaced();
+        newObject.GetComponent<Constructable>().builPosition = position;
 
         // Storing the positions that are now occupied
         placedGameObjects.Add(newObject);

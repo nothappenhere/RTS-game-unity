@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4779443772144958377}
   - component: {fileID: 2721585803289978521}
   - component: {fileID: 837809432609253267}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_Frame_2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1183309390546910403}
   - component: {fileID: 5892206175539483442}
   - component: {fileID: 3128899123396979750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 3898317217739778851}
   - component: {fileID: 115355100697963155}
   - component: {fileID: 1121273098994779935}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: TownHall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,8 +221,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constMaxHealth: 100
   healthTracker: {fileID: 8575495959688368820}
-  isEnemy: 1
+  isEnemy: 0
   buildingType: 1
+  builPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1121273098994779935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1576637736746211345
 GameObject:
@@ -256,7 +257,7 @@ GameObject:
   - component: {fileID: 2711608231851605668}
   - component: {fileID: 3264993520933163330}
   - component: {fileID: 2895360666325288848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConstructableUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +358,7 @@ GameObject:
   - component: {fileID: 7967894267599228272}
   - component: {fileID: 3950250687380334300}
   - component: {fileID: 5818871128913656595}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OwenStoneroof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +444,7 @@ GameObject:
   - component: {fileID: 2183698297534680515}
   - component: {fileID: 8178367323435509913}
   - component: {fileID: 1898626090729996483}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +519,7 @@ GameObject:
   - component: {fileID: 8645656959485492317}
   - component: {fileID: 3770091868765644576}
   - component: {fileID: 6617142462922353137}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5550260847603229396}
   - component: {fileID: 1950509213653180325}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OwenMemorialHall_Exterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4364718489792806741}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +679,7 @@ GameObject:
   - component: {fileID: 6927126793371786904}
   - component: {fileID: 3820077964398780142}
   - component: {fileID: 3626327111284454727}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: TeamName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,7 +815,7 @@ GameObject:
   - component: {fileID: 2776141121476442062}
   - component: {fileID: 4489403697732371837}
   - component: {fileID: 41105487124436386}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +901,7 @@ GameObject:
   - component: {fileID: 5356676888753943253}
   - component: {fileID: 1696637036219767634}
   - component: {fileID: 5757402684740782991}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OwenDoor_Bigwindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +988,7 @@ GameObject:
   - component: {fileID: 8040640641290972210}
   - component: {fileID: 4801943523861902507}
   - component: {fileID: 3228954132358525755}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1076,7 +1077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7157099380069867159}
   - component: {fileID: 4447912481158076801}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthBarSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1168,7 @@ GameObject:
   - component: {fileID: 3956608832809451861}
   - component: {fileID: 4649169729481323015}
   - component: {fileID: 7040889969077906453}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_Frame_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5712599971016449675}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1285,7 +1286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896263358908990871}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1319,7 +1320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7647964935799745728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OwenMemorialHall_Exterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1358,7 +1359,7 @@ GameObject:
   - component: {fileID: 7995502241673343010}
   - component: {fileID: 8575495959688368820}
   - component: {fileID: 3559036451483684005}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3650910707503956936}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Open_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1495,7 +1496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610233788966793467}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1533,7 +1534,7 @@ GameObject:
   - component: {fileID: 8796941584656260017}
   - component: {fileID: 8736491850468106539}
   - component: {fileID: 64787297631103434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OwenWall_Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1619,7 +1620,7 @@ GameObject:
   - component: {fileID: 429841187559024345}
   - component: {fileID: 7407714714974771295}
   - component: {fileID: 3069526115681120601}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_R_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1705,7 +1706,7 @@ GameObject:
   - component: {fileID: 7267647652292797951}
   - component: {fileID: 6378461737621073168}
   - component: {fileID: 6794398077175921126}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Front_Door_L_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 882968882643384265}
   - component: {fileID: 679512787699164350}
   - component: {fileID: 3464121989456982444}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 5309333682929139376}
   - component: {fileID: 9068164510450211842}
   - component: {fileID: 537592762007774180}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3455713063104383463}
   - component: {fileID: 7172059731947112081}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthBarSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 2669242149567687633}
   - component: {fileID: 2257884079764018426}
   - component: {fileID: 7728973092625321801}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 3751708949760463970}
   - component: {fileID: 980316473276180599}
   - component: {fileID: -5919276757689484750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuildingV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,6 +382,7 @@ MonoBehaviour:
   healthTracker: {fileID: 6821954085322482422}
   isEnemy: 0
   buildingType: 3
+  builPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &-5919276757689484750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3.6, y: 6, z: 2.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4419077311502573160
 GameObject:
@@ -414,7 +415,7 @@ GameObject:
   - component: {fileID: 838820985018337807}
   - component: {fileID: 8818398451601163665}
   - component: {fileID: 5781540149218605336}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: TeamName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7548158512951864890}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +589,7 @@ GameObject:
   - component: {fileID: 3659748927477241003}
   - component: {fileID: 6821954085322482422}
   - component: {fileID: 5427248336700317910}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7236572735901492133}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +732,7 @@ GameObject:
   - component: {fileID: 5071501099469406548}
   - component: {fileID: 4276609062763242168}
   - component: {fileID: 8622265601290773857}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConstructableUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,6 +833,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b4e79aa1998f6994c82a5c1d44143683, type: 3}
       propertyPath: m_Name
       value: Medieval_Building_LowPoly_V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b4e79aa1998f6994c82a5c1d44143683, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b4e79aa1998f6994c82a5c1d44143683, type: 3}
       propertyPath: m_LocalPosition.x

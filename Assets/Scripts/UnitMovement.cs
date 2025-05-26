@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,7 +24,7 @@ public class UnitMovement : MonoBehaviour
     private void Update()
     {
         // Klik kanan untuk memerintahkan unit bergerak
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && IsMovingPosible())
         {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -43,6 +44,11 @@ public class UnitMovement : MonoBehaviour
         //{
         //    isCommandedToMove = false; // Hentikan pergerakan
         //}
+    }
+
+    private bool IsMovingPosible()
+    {
+        return CursorManager.Instance.currentCursor != CursorManager.CursorType.UnAvailable;
     }
 
     IEnumerator NoCommand()

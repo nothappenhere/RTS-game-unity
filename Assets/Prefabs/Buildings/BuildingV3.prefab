@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3631378078819728255}
   - component: {fileID: 5764862687503015853}
   - component: {fileID: 36879842450128425}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 6656090837478901828}
   - component: {fileID: 4651246107215546375}
   - component: {fileID: 5332428302593285605}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: TeamName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 750232279851583194}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 3030142501973392111}
   - component: {fileID: 4077018868428523519}
   - component: {fileID: -381396433153193304}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuildingV3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,6 +298,7 @@ MonoBehaviour:
   healthTracker: {fileID: 3585577807495472346}
   isEnemy: 0
   buildingType: 4
+  builPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &-381396433153193304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3.6, y: 6, z: 2.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4441440260479958250
 GameObject:
@@ -332,7 +333,7 @@ GameObject:
   - component: {fileID: 3693063651591798138}
   - component: {fileID: 3585577807495472346}
   - component: {fileID: 8832736159490715256}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7594145204539722479}
   - component: {fileID: 7144778223215658024}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthBarSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3216678593144932385}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +565,7 @@ GameObject:
   - component: {fileID: 7627205552788130512}
   - component: {fileID: 6131068509258997295}
   - component: {fileID: 7545114100070970048}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +641,7 @@ GameObject:
   - component: {fileID: 5609585256582950802}
   - component: {fileID: 5860457304968511855}
   - component: {fileID: 7792315638566418016}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +732,7 @@ GameObject:
   - component: {fileID: 8064854918955467857}
   - component: {fileID: 7724938097871614124}
   - component: {fileID: 869595620156744900}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ConstructableUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,6 +833,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 87702ca1c076b0c46af80a1023b85ff0, type: 3}
       propertyPath: m_Name
       value: Medieval_Building_LowPoly_V3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87702ca1c076b0c46af80a1023b85ff0, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87702ca1c076b0c46af80a1023b85ff0, type: 3}
       propertyPath: m_LocalPosition.x

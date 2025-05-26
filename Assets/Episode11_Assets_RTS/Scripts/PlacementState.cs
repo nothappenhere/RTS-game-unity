@@ -61,11 +61,13 @@ public class PlacementState : IBuildingState
         ResourceManager.instance.DecreaseResourceBasedOnRequirement(database.objectsData[selectedObjectIndex]);
         // Get building type of the building that just build
         BuildingType buildingType = database.objectsData[selectedObjectIndex].thisBuildingType;
-        ResourceManager.instance.UpdateBuildingChanged(buildingType, true);
+        ResourceManager.instance.UpdateBuildingChanged(buildingType, true, new Vector3());
 
         // If this id is a floor id, then its a floor data, else its a furniture data
-        GridData selectedData = GetAllFloorIDs().Contains(database.objectsData[selectedObjectIndex].ID) ? floorData : furnitureData;
-       
+        //GridData selectedData = GetAllFloorIDs().Contains(database.objectsData[selectedObjectIndex].ID) ? floorData : furnitureData;
+
+        GridData selectedData = floorData;
+
         selectedData.AddObjectAt(gridPosition,
             database.objectsData[selectedObjectIndex].Size,
             database.objectsData[selectedObjectIndex].ID,
@@ -82,7 +84,9 @@ public class PlacementState : IBuildingState
 
     private bool CheckPlacementValidity(Vector3Int gridPosition, int selectedObjectIndex)
     {
-        GridData selectedData = GetAllFloorIDs().Contains(database.objectsData[selectedObjectIndex].ID) ? floorData : furnitureData;
+        //GridData selectedData = GetAllFloorIDs().Contains(database.objectsData[selectedObjectIndex].ID) ? floorData : furnitureData;
+
+        GridData selectedData = floorData;
 
         // Check if the grid cell is already ocupied by another object from the GridData 
         if (!selectedData.CanPlaceObjectAt(gridPosition, database.objectsData[selectedObjectIndex].Size))
