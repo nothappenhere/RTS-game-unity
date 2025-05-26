@@ -44,6 +44,14 @@ public class Constructable : MonoBehaviour, IDamagaeble
         }
     }
 
+    private void OnDestroy()
+    {
+        if (constHealth > 0 && builPosition != Vector3.zero)
+        {
+            ResourceManager.instance.SellingBuilding(buildingType);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (!healthTracker.gameObject.activeSelf)

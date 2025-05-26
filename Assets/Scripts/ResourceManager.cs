@@ -25,6 +25,7 @@ public class ResourceManager : MonoBehaviour
 
     public TextMeshProUGUI creditsUI;
 
+
     private void Awake()
     {
         // Menetapkan singleton instance dan menghancurkan duplikat jika ada
@@ -85,6 +86,30 @@ public class ResourceManager : MonoBehaviour
 
         OnResourceChanged?.Invoke();
     }
+
+    public void SellingBuilding(BuildingType buildingType)
+    {
+        var sellingPrice = 0;
+
+        foreach (ObjectData obj in DatabaseManager.instance.databaseSO.objectsData)
+        {
+            if (obj.thisBuildingType == buildingType)
+            {
+                foreach (BuildRequirement req in obj.resourceRequirements)
+                {
+                    if (req.resource == ResourceType.Credits)
+                    {
+                        sellingPrice = req.amount;
+                    }
+                }
+            }
+        }
+
+        int amountToReturn = (int)(sellingPrice * 0.50);  // 50% of the cost
+
+        IncreaseResource(ResourceType.Credits, amountToReturn);
+    }
+
 
     private void UpdateUI()
     {

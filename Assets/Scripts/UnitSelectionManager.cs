@@ -129,7 +129,11 @@ public class UnitSelectionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, clickable))
         {
             CursorManager.Instance.SetMarkerType(CursorManager.CursorType.Selectable);
-        } 
+        }
+        else if (ResourceManager.instance.placementSystem.inSellMode)
+        {
+            CursorManager.Instance.SetMarkerType(CursorManager.CursorType.SellingCursor);
+        }
         else if (Physics.Raycast(ray, out hit, Mathf.Infinity, attackable)
             && unitsSelected.Count > 0 && AtleastOneOffensiveUnit(unitsSelected))
         {
