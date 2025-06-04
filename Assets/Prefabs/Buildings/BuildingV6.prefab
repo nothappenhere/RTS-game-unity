@@ -390,6 +390,7 @@ MonoBehaviour:
   isEnemy: 0
   buildingType: 7
   builPosition: {x: 0, y: 0, z: 0}
+  inPreviewMode: 1
 --- !u!65 &-3299743035948476041
 BoxCollider:
   m_ObjectHideFlags: 0

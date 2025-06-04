@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 5714584371041243116}
   - component: {fileID: 5911935132275827092}
   - component: {fileID: -4706908171224502058}
+  - component: {fileID: -6359563201749407770}
   m_Layer: 10
   m_Name: BuildingV1
   m_TagString: Untagged
@@ -315,6 +316,7 @@ MonoBehaviour:
   isEnemy: 0
   buildingType: 2
   builPosition: {x: 0, y: 0, z: 0}
+  inPreviewMode: 1
 --- !u!65 &-4706908171224502058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -336,6 +338,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.6, y: 4.2, z: 2.6}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6359563201749407770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3482978584619812437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e577edf5c1bb48040932fae2e09a65e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  producingPower: 200
+  consumingPower: 0
+  isProducer: 1
 --- !u!1 &3758796315728167499
 GameObject:
   m_ObjectHideFlags: 0

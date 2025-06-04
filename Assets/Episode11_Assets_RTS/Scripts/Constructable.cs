@@ -20,6 +20,9 @@ public class Constructable : MonoBehaviour, IDamagaeble
 
     public Vector3 builPosition;
 
+
+    public bool inPreviewMode;
+
     private void Start()
     {
         constHealth = constMaxHealth;
@@ -48,9 +51,12 @@ public class Constructable : MonoBehaviour, IDamagaeble
 
     private void OnDestroy()
     {
-        if (constHealth > 0 && builPosition != Vector3.zero)
+        if (inPreviewMode == false)
         {
-            ResourceManager.instance.SellingBuilding(buildingType);
+            if (constHealth > 0 && builPosition != Vector3.zero)
+            {
+                ResourceManager.instance.SellingBuilding(buildingType);
+            }
         }
     }
 
@@ -67,11 +73,18 @@ public class Constructable : MonoBehaviour, IDamagaeble
 
     public void ConstructableWasPlaced()
     {
-         ActivateObstacle();
+        Debug.Log("placed!");
+
+        ActivateObstacle();
         
         if (isEnemy)
         {
             gameObject.tag = "Enemy";
+        }
+
+        if (GetComponent<PowerUser>() != null)
+        {
+            GetComponent<PowerUser>().PowerOn();
         }
     }
 

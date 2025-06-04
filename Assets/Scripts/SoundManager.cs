@@ -30,20 +30,12 @@ public class SoundManager : MonoBehaviour
         }
 
         infantryAttackChannel = gameObject.AddComponent<AudioSource>();
-        infantryAttackChannel.volume = 1f;
-        infantryAttackChannel.playOnAwake = false;
 
         destructionBuildingChannel = gameObject.AddComponent<AudioSource>();
-        destructionBuildingChannel.volume = 1f;
-        destructionBuildingChannel.playOnAwake = false;
 
         constructionBuildingChannel = gameObject.AddComponent<AudioSource>();
-        constructionBuildingChannel.volume = 1f;
-        constructionBuildingChannel.playOnAwake = false;
 
         extraBuildingChannel = gameObject.AddComponent<AudioSource>();
-        extraBuildingChannel.volume = 1f;
-        extraBuildingChannel.playOnAwake = false;
     }
 
     public void PlayInfantryAttackSound()
