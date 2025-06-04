@@ -49,6 +49,8 @@ public class ResourceManager : MonoBehaviour
         if (isNew)
         {
             allExistingBuildings.Add(buildingType);
+
+            SoundManager.instance.PlayBuildingConstructionSound();
         }
         else
         {
@@ -89,6 +91,8 @@ public class ResourceManager : MonoBehaviour
 
     public void SellingBuilding(BuildingType buildingType)
     {
+        SoundManager.instance.PlayBuildingSellingSound();
+
         var sellingPrice = 0;
 
         foreach (ObjectData obj in DatabaseManager.instance.databaseSO.objectsData)

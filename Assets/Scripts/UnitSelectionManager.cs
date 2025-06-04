@@ -82,7 +82,7 @@ public class UnitSelectionManager : MonoBehaviour
                 Vector3 fixedPosition = new Vector3(hit.point.x, 0.1f, hit.point.z); // Menetapkan posisi target di tanah
                 groundMaker.SetActive(false);
                 groundMaker.transform.position = fixedPosition;
-                groundMaker.SetActive(true);
+                //groundMaker.SetActive(true);
             }
         }
 

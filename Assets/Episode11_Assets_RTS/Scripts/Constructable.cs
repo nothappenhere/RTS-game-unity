@@ -40,6 +40,8 @@ public class Constructable : MonoBehaviour, IDamagaeble
         {
             ResourceManager.instance.UpdateBuildingChanged(buildingType, false, builPosition);
 
+            SoundManager.instance.PlayBuildingDestructionSound();
+
             Destroy(gameObject);
         }
     }
