@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,10 @@ public class PowerManager : MonoBehaviour
     [SerializeField] private Slider powerSlider;
     [SerializeField] private TextMeshProUGUI powerText;
 
+    public AudioClip powerAddedClip;
+    public AudioClip powerInsufficientClip;
+
+    private AudioSource powerAudioSource;
 
     private void Awake()
     {
@@ -25,28 +30,42 @@ public class PowerManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        powerAudioSource = gameObject.AddComponent<AudioSource>();
     }
 
 
-    public void AddPower(int amount)
+    public void AddPower(int amount)  // Constructing a new producer building
     {
+        PlayPowerAddedSound();
+
         totalPower += amount;
         UpdatePowerUI();
     }
 
-    public void ConsumePower(int amount)
+    public void ConsumePower(int amount)  // Constructing a new consumer building
     {
         powerUsage += amount;
         UpdatePowerUI();
+
+        if ((totalPower - powerUsage) <= 0)
+        {
+            PlayPowerInsufficientSound();
+        }
     }
 
-    public void RemovePower(int amount)
+    public void RemovePower(int amount)  // Destroying a producer building
     {
         totalPower -= amount;
         UpdatePowerUI();
+
+        if ((totalPower - powerUsage) <= 0)
+        {
+            PlayPowerInsufficientSound();
+        }
     }
 
-    public void ReleasePower(int amount)
+    public void ReleasePower(int amount) // Destroying a consumer building
     {
         powerUsage -= amount;
         UpdatePowerUI();
@@ -54,6 +73,16 @@ public class PowerManager : MonoBehaviour
 
     private void UpdatePowerUI()
     {
+        int availablePower = totalPower - powerUsage;
+        if (availablePower > 0)
+        {
+            sliderFill.gameObject.SetActive(true);
+        }
+        else
+        {
+            sliderFill.gameObject.SetActive(false);
+        }
+
         if (powerSlider != null)
         {
             powerSlider.maxValue = totalPower;
@@ -62,12 +91,22 @@ public class PowerManager : MonoBehaviour
 
         if (powerText != null)
         {
-            powerText.text = $"{totalPower - powerUsage}/{totalPower}";
+            powerText.text = $"Power: {totalPower - powerUsage}/{totalPower}";
         }
     }
 
     public int CalculateAvailablePower()
     {
         return totalPower - powerUsage;
+    }
+
+    public void PlayPowerAddedSound()
+    {
+        powerAudioSource.PlayOneShot(powerAddedClip);
+    }
+
+    public void PlayPowerInsufficientSound()
+    {
+        powerAudioSource.PlayOneShot(powerInsufficientClip);
     }
 }

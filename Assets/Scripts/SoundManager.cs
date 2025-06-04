@@ -4,7 +4,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance { get; set; }
 
-    [Header("Units")]
+    [Header("Infantry")]
     private AudioSource infantryAttackChannel;
     public AudioClip infantryAttackClip;
 
@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBuildingSellingSound()
     {
-        if (extraBuildingChannel.isPlaying == false)
+        if (extraBuildingChannel != null && extraBuildingChannel.isPlaying == false)
         {
             extraBuildingChannel.PlayOneShot(sellingSound);
         }

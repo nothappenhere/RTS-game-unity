@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -71,9 +73,11 @@ public class Constructable : MonoBehaviour, IDamagaeble
         UpdateHealthUI();
     }
 
-    public void ConstructableWasPlaced()
+    public void ConstructableWasPlaced(Vector3 position)
     {
         Debug.Log("placed!");
+        inPreviewMode = false;
+        builPosition = position;
 
         ActivateObstacle();
         
